@@ -1,0 +1,2 @@
+# StringCalculator
+Hugbúnaðarfræði TDD verkefni
