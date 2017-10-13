@@ -85,4 +85,9 @@ public class CalculatorTest {
   public void testDelimeter() {
        assertEquals(13, Calculator.add("//[*]\n1*10*2"));
    }
+
+   @Test
+   public void testMultpileDelimeters(){
+     assertEquals(25, Calculator.add("//[%+/&]\n8%+/&5%+/&12"));
+   }
 }
