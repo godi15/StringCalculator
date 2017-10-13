@@ -29,4 +29,9 @@ public class CalculatorTest {
   public void testTwoNumbersNewLine(){
     assertEquals(6,Calculator.add("1\n2,3"));
   }
+
+  @Test
+  public void testDifferentUsageOfNewLineAndCommas(){
+    assertEquals(8,Calculator.add("1,2\n1\n1,2\n1"));
+  }
 }
