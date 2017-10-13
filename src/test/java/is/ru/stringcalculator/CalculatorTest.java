@@ -80,4 +80,9 @@ public class CalculatorTest {
   public void testBigNumbers(){
     assertEquals(6,Calculator.add("1,1001,100324,9999,3\n2"));
   }
+
+  @Test
+  public void testDelimeter() {
+       assertEquals(13, Calculator.add("//[*]\n1*10*2"));
+   }
 }

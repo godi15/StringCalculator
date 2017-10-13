@@ -8,6 +8,7 @@ public class Calculator{
     }
     else{
       text = replace(text,"\n",",");
+      text  = newDelimeter(text);
       return sum(splitNumbers(text,","));
     }
   }
@@ -52,5 +53,22 @@ public class Calculator{
 
   public static Boolean isBigNumber(int number){
     return number > 1000;
+  }
+
+  public static String newDelimeter(String text){
+    if(text.startsWith("//[")) {
+      int startPos = 3;
+      String endingPlace = "]";
+      String theDelimeter = text.substring(startPos, text.indexOf(endingPlace));
+      text = replacingNewDelimeter(text, theDelimeter);
+    }
+    return text;
+  }
+
+  public static String replacingNewDelimeter(String text, String delimeter){
+    int additionTxt = 5;
+    text = text.substring(delimeter.length() + additionTxt);
+    text = replace(text,delimeter,",");
+    return text;
   }
 }
