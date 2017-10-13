@@ -34,4 +34,16 @@ public class CalculatorTest {
   public void testDifferentUsageOfNewLineAndCommas(){
     assertEquals(8,Calculator.add("1,2\n1\n1,2\n1"));
   }
+
+  @Test
+  public void testNegativeNumber(){
+    Boolean throwEx = false;
+    try {
+          Calculator.add("-1");
+    }
+    catch(IllegalArgumentException ex) {
+            throwEx = true;
+    }
+    assertEquals(true,throwEx);
+  }
 }

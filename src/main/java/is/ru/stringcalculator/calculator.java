@@ -8,27 +8,42 @@ public class Calculator{
     }
     else{
       text = replace(text,"\n",",");
-      if(text.contains(",")){
-          String numbers[] = text.split(",");
-          return sum(numbers);
-      }
-      return 1;
+      return sum(splitNumbers(text,","));
     }
+  }
+
+  private static int sum(String[] numbers){
+    int total = 0;
+    String negatives = "";
+    for(String number : numbers){
+      if(isNegativeNumber(toInt(number))){
+        negatives += number + ",";
+      }
+      total += toInt(number);
+    }
+    if (!negatives.equals("")) {
+        handleNegatives(negatives);
+    }
+    return total;
   }
 
   private static int toInt(String text){
     return Integer.parseInt(text);
   }
 
-  private static int sum(String[] numbers){
-    int total = 0;
-    for(String number : numbers){
-         total += toInt(number);
-    }
-    return total;
-  }
-
   public static String replace(String text, String replace, String replacement){
       return text.replace(replace,replacement);
+  }
+
+  public static Boolean isNegativeNumber(int number){
+    return number < 0;
+  }
+
+  public static void handleNegatives(String negatives){
+    throw new IllegalArgumentException("Negatives not allowed: " + negatives);
+  }
+
+  public static String[] splitNumbers(String text, String separators){
+    return text.split(separators);
   }
 }
