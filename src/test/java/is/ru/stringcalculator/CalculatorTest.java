@@ -114,4 +114,9 @@ public class CalculatorTest {
       }
       assertEquals(true,threwEx);
      }
+
+     @Test
+     public void testComplicated(){
+       assertEquals(1988, Calculator.add("//[*+--+*]\n100000*+--+*988*+--+*999*+--+*0*+--+*1"));
+     }
 }
