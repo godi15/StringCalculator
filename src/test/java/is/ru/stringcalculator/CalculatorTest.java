@@ -90,4 +90,16 @@ public class CalculatorTest {
    public void testMultpileDelimeters(){
      assertEquals(25, Calculator.add("//[%+/&]\n8%+/&5%+/&12"));
    }
+
+   @Test
+   public void testDelemieterWithNegatives() {
+     Boolean threwEx = false;
+     try {
+        Calculator.add("//[*]\n1*-7*-9");
+     }
+     catch(IllegalArgumentException ex) {
+           threwEx = true;
+     }
+     assertEquals(true,threwEx);
+    }
 }
