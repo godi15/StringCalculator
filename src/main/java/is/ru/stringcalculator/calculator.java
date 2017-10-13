@@ -19,6 +19,9 @@ public class Calculator{
       if(isNegativeNumber(toInt(number))){
         negatives += number + ",";
       }
+      else if (isBigNumber(toInt(number))){
+        continue;
+      }
       total += toInt(number);
     }
     if (!negatives.equals("")) {
@@ -45,5 +48,9 @@ public class Calculator{
 
   public static String[] splitNumbers(String text, String separators){
     return text.split(separators);
+  }
+
+  public static Boolean isBigNumber(int number){
+    return number > 1000;
   }
 }
