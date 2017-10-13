@@ -7,11 +7,12 @@ public class Calculator{
         return 0;
     }
     else{
-        if(text.contains(",")){
+      text = replace(text,"\n",",");
+      if(text.contains(",")){
           String numbers[] = text.split(",");
           return sum(numbers);
-        }
-        return 1;
+      }
+      return 1;
     }
   }
 
@@ -25,5 +26,9 @@ public class Calculator{
          total += toInt(number);
     }
     return total;
+  }
+
+  public static String replace(String text, String replace, String replacement){
+      return text.replace(replace,replacement);
   }
 }
