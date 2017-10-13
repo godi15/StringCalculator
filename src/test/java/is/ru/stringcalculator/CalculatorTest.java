@@ -49,10 +49,21 @@ public class CalculatorTest {
 
   @Test
   public void testTwoNegativeNumbers(){
-
     Boolean threwEx = false;
     try {
           Calculator.add("-4,-3");
+    }
+    catch(IllegalArgumentException ex) {
+          threwEx = true;
+    }
+    assertEquals(true,threwEx);
+  }
+
+  @Test
+  public void testMultipleNegativeNumbers(){
+    Boolean threwEx = false;
+    try {
+          Calculator.add("-2,-4,\n3,-5");
     }
     catch(IllegalArgumentException ex) {
           threwEx = true;
