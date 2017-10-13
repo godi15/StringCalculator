@@ -102,4 +102,16 @@ public class CalculatorTest {
      }
      assertEquals(true,threwEx);
     }
+
+    @Test
+    public void testMultipleDelemietersWithNegatives() {
+      Boolean threwEx = false;
+      try {
+         Calculator.add("//[***+]\n1***+-10***+-2");
+      }
+      catch(IllegalArgumentException ex) {
+            threwEx = true;
+      }
+      assertEquals(true,threwEx);
+     }
 }
